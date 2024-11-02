@@ -1,18 +1,20 @@
 import 'package:detail_information/UI/feedScreen.dart';
-import 'package:detail_information/UI/posting.dart';
 import 'package:detail_information/UI/postingScreen.dart';
 import 'package:detail_information/mainScreen/settings.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final int selectedIndex;
+  const HomeScreen({super.key, this.selectedIndex = 0});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState(selectedIndex);
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
+  int selectedIndex;
+
+  _HomeScreenState(this.selectedIndex);
 
   final List<Widget> _screens = [
     const FeedScreen(),
@@ -24,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      selectedIndex = index;
     });
   }
 
@@ -35,11 +37,11 @@ class _HomeScreenState extends State<HomeScreen> {
       //   title: Text('FAMZY'),
       //   centerTitle: true,
       // ),
-      body: _screens[_selectedIndex],
+      body: _screens[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
+        currentIndex: selectedIndex,
         onTap: _onItemTapped,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',

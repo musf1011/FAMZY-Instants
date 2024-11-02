@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:detail_information/UI/auth/signin/signIn.dart';
 import 'package:detail_information/UI/homeScreen.dart';
-import 'package:detail_information/UI/signIn.dart';
-import 'package:detail_information/UI/welcome.dart';
-import 'package:detail_information/mainScreen/settings.dart';
 import 'package:detail_information/utils/custTextFormField.dart';
 import 'package:detail_information/utils/toastPopUp.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -33,7 +31,7 @@ class _signUpState extends State<signUp> {
   int gmail = -1;
 
   int fullName = -1;
-  bool _isPasswordVisible = false;
+  final bool _isPasswordVisible = false;
 
   bool isLoading = false;
 
@@ -154,7 +152,7 @@ class _signUpState extends State<signUp> {
                       ),
                       Row(
                         children: [
-                          Container(
+                          SizedBox(
                             width: .5.sw,
                             child: TextFormField(
                               validator: (value) {
@@ -164,7 +162,7 @@ class _signUpState extends State<signUp> {
                                 return null;
                               },
                               controller: agecontr,
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               keyboardType: TextInputType.number,
                               decoration: InputDecoration(
                                 labelText: 'Age',
@@ -191,25 +189,25 @@ class _signUpState extends State<signUp> {
                           DropdownButton(
                             dropdownColor:
                                 const Color.fromARGB(255, 15, 90, 15),
-                            hint: Text(
+                            hint: const Text(
                               'Gender',
                               style: TextStyle(color: Colors.yellow),
                             ),
                             value: selectedGender,
-                            items: [
+                            items: const [
                               DropdownMenuItem(
+                                value: 'male',
                                 child: Text(
                                   'Male',
                                   style: TextStyle(color: Colors.yellow),
                                 ),
-                                value: 'male',
                               ),
                               DropdownMenuItem(
+                                value: 'female',
                                 child: Text(
                                   'Female',
                                   style: TextStyle(color: Colors.yellow),
                                 ),
-                                value: 'female',
                               )
                             ],
                             onChanged: (String? newValue) {

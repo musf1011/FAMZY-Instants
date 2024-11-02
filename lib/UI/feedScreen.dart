@@ -19,7 +19,12 @@ class _FeedScreenState extends State<FeedScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Feed'),
+        title: const Text(
+          'FAMZY Instants',
+          style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.blue,
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
@@ -76,7 +81,7 @@ class _FeedScreenState extends State<FeedScreen> {
                       children: [
                         // User Info
                         ListTile(
-                          leading: CircleAvatar(
+                          leading: const CircleAvatar(
                             child: Icon(Icons.person), // You can customize this
                           ),
                           title: Text(userName),

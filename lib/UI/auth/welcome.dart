@@ -1,6 +1,5 @@
-import 'package:detail_information/UI/signIn.dart';
-import 'package:detail_information/UI/signUp.dart';
-import 'package:detail_information/mainScreen/settings.dart';
+import 'package:detail_information/UI/auth/signUp.dart';
+import 'package:detail_information/UI/auth/signin/signIn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -50,7 +49,7 @@ class Welcome extends StatelessWidget {
                   child: Text(
                     'Sign In',
                     style: TextStyle(
-                        color: Color.fromARGB(255, 0, 68, 2),
+                        color: const Color.fromARGB(255, 0, 68, 2),
                         fontSize: 18.sp,
                         fontWeight: FontWeight.w400),
                   ),
@@ -77,7 +76,7 @@ class Welcome extends StatelessWidget {
                   child: Text(
                     'Sign UP',
                     style: TextStyle(
-                        color: Color.fromARGB(255, 0, 68, 2),
+                        color: const Color.fromARGB(255, 0, 68, 2),
                         fontSize: 18.sp,
                         fontWeight: FontWeight.w400),
                   ),

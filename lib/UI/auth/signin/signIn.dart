@@ -1,10 +1,7 @@
+import 'package:detail_information/UI/auth/signUp.dart';
 import 'package:detail_information/UI/homeScreen.dart';
-import 'package:detail_information/UI/signUp.dart';
-import 'package:detail_information/main.dart';
-import 'package:detail_information/mainScreen/settings.dart';
 import 'package:detail_information/utils/toastPopUp.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -35,7 +32,7 @@ class _signInState extends State<signIn> {
       body: Container(
         height: 1.sh,
         width: 1.sw,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage('assets/images/bcnn.jpg'), fit: BoxFit.fill),
         ),
@@ -71,14 +68,14 @@ class _signInState extends State<signIn> {
                       decoration: InputDecoration(
                         labelText: 'Gmail',
                         hintText: 'you@gmail.com',
-                        hintStyle: TextStyle(
-                            color: const Color.fromARGB(255, 226, 222, 209)),
-                        labelStyle: TextStyle(color: Colors.yellow),
+                        hintStyle: const TextStyle(
+                            color: Color.fromARGB(255, 226, 222, 209)),
+                        labelStyle: const TextStyle(color: Colors.yellow),
                         suffixIcon: Icon(
                           Icons.check,
                           color: cred == 0 ? Colors.red : Colors.grey,
                         ),
-                        focusedBorder: UnderlineInputBorder(
+                        focusedBorder: const UnderlineInputBorder(
                           borderSide: BorderSide(
                               color: Color.fromARGB(255, 182, 146, 29)),
                         ),
@@ -96,10 +93,10 @@ class _signInState extends State<signIn> {
                       controller: passcont,
                       decoration: InputDecoration(
                         hintText: 'password',
-                        hintStyle: TextStyle(
-                            color: const Color.fromARGB(255, 226, 222, 209)),
+                        hintStyle: const TextStyle(
+                            color: Color.fromARGB(255, 226, 222, 209)),
                         labelText: 'Password',
-                        labelStyle: TextStyle(color: Colors.yellow),
+                        labelStyle: const TextStyle(color: Colors.yellow),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _isPasswordVisible
@@ -107,7 +104,7 @@ class _signInState extends State<signIn> {
                                 : Icons.visibility_off,
                             color: _isPasswordVisible == false
                                 ? Colors.grey
-                                : Color.fromARGB(255, 123, 100, 22),
+                                : const Color.fromARGB(255, 123, 100, 22),
                           ),
                           onPressed: () {
                             setState(() {
@@ -115,7 +112,7 @@ class _signInState extends State<signIn> {
                             });
                           },
                         ),
-                        focusedBorder: UnderlineInputBorder(
+                        focusedBorder: const UnderlineInputBorder(
                           borderSide: BorderSide(
                               color: Color.fromARGB(255, 182, 146, 29)),
                         ),
@@ -133,12 +130,13 @@ class _signInState extends State<signIn> {
                     cred == 0
                         ? Text('*Complete the credentials',
                             style: TextStyle(
-                                color: Color.fromARGB(255, 123, 100, 22),
+                                color: const Color.fromARGB(255, 123, 100, 22),
                                 fontSize: 12.sp))
                         : cred == 2
                             ? Text('*Incorrect Password',
                                 style: TextStyle(
-                                    color: Color.fromARGB(255, 123, 100, 22),
+                                    color:
+                                        const Color.fromARGB(255, 123, 100, 22),
                                     fontSize: 12.sp))
                             : SizedBox(
                                 height: 0.03.sh,
@@ -171,7 +169,7 @@ class _signInState extends State<signIn> {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HomeScreen()));
+                                    builder: (context) => const HomeScreen()));
                             setState(() {
                               isLoading = false;
                             });
@@ -192,12 +190,12 @@ class _signInState extends State<signIn> {
                         height: .075.sh,
                         width: .75.sw,
                         decoration: BoxDecoration(
-                            gradient: LinearGradient(
+                            gradient: const LinearGradient(
                                 colors: [Colors.amber, Colors.black]),
                             borderRadius: BorderRadius.circular(50)),
                         child: Center(
                             child: isLoading == true
-                                ? CircularProgressIndicator(
+                                ? const CircularProgressIndicator(
                                     color: Colors.white,
                                   )
                                 : Text(
@@ -215,15 +213,15 @@ class _signInState extends State<signIn> {
                           "Don't have an account?",
                           style: TextStyle(color: Colors.blue, fontSize: 12.sp),
                         ),
-                        SizedBox(width: 8.0),
+                        const SizedBox(width: 8.0),
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => signUp()));
+                                    builder: (context) => const signUp()));
                           },
-                          child: Text(
+                          child: const Text(
                             'Sign up',
                             style: TextStyle(color: Colors.yellow),
                           ),

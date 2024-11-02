@@ -110,6 +110,7 @@
 // // }
 
 import 'dart:io';
+import 'package:detail_information/UI/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
@@ -132,8 +133,8 @@ class _PostingScreenState extends State<PostingScreen> {
 
   // Function to pick image from camera
   void pickImageCamera() async {
-    final ImagePicker _picker = ImagePicker();
-    image = await _picker.pickImage(source: ImageSource.camera);
+    final ImagePicker picker = ImagePicker();
+    image = await picker.pickImage(source: ImageSource.camera);
     if (image != null) {
       setState(() {
         imageFile = File(image!.path);
@@ -143,8 +144,8 @@ class _PostingScreenState extends State<PostingScreen> {
 
   // Function to pick image from gallery
   void pickImageGallery() async {
-    final ImagePicker _picker = ImagePicker();
-    image = await _picker.pickImage(source: ImageSource.gallery);
+    final ImagePicker picker = ImagePicker();
+    image = await picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
       setState(() {
         imageFile = File(image!.path);
@@ -185,6 +186,13 @@ class _PostingScreenState extends State<PostingScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Post uploaded successfully!')),
       );
+
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) => const HomeScreen(
+                    selectedIndex: 0,
+                  )));
 
       // Clear the image and description after uploading
       setState(() {

@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:detail_information/UI/welcome.dart';
+import 'package:detail_information/UI/auth/welcome.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -66,7 +66,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 child: Text(
                   'Let\'s Start The Journey',
                   style: TextStyle(
-                      color: Color.fromARGB(255, 0, 68, 2),
+                      color: const Color.fromARGB(255, 0, 68, 2),
                       fontWeight: FontWeight.w400,
                       fontSize: 18.sp),
                 ),
